@@ -13,7 +13,7 @@ from parameters import (dataseeds, NLOCALWORKERS, DISTCLUSTER, resfolder,
                         alpha_powers, nouterfolds)
 
 ################################################################
-######################## Data parameters #######################
+###################### ANALYSIS PARAMETERS #####################
 ################################################################
 
 monkeys = ['both', 'M', 'N']

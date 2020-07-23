@@ -2,7 +2,7 @@ import pickle as pk
 import numpy as np
 from parameters import STABLE_ENS_PARAMS, BASIC_PARAMS, EVT_WINS
 from generate_population_dataset import generate_dataset
-from parameters import nouterfolds, ensfolder, unitfolder, resfolder
+from parameters import nouterfolds, unitfolder, resfolder
 from matplotlib import pyplot as plt
 
 
@@ -144,7 +144,7 @@ def combine_ens_folds(CTDparams, stable, dataseed, erasefolds=True):
     testind_xval = []
     for ifold in range(nouterfolds):
         foldname = get_ens_filename(CTDparams, params_preproc, dataseed, ifold=ifold)
-        with open(ensfolder/foldname, 'rb') as f:
+        with open(resfolder/foldname, 'rb') as f:
             ensperfs_tmp, ensbl_tmp, test_ind = pk.load(f)
         acc_test_xval.append(ensperfs_tmp)
         ensbls_test_xval.append(ensbl_tmp)
@@ -161,20 +161,20 @@ def combine_ens_folds(CTDparams, stable, dataseed, erasefolds=True):
               'subspace': CTDparams['subspace'],
               'testinds': testind_xval,
               'dataseed': dataseed}
-    with open(ensfolder/filename, 'wb') as f:
+    with open(resfolder/filename, 'wb') as f:
         pk.dump(tosave, f)
 
     if erasefolds:
         for ifold in range(nouterfolds):
             foldname = get_ens_filename(CTDparams, params_preproc, dataseed, ifold=ifold)
-            fullpath = ensfolder / foldname
+            fullpath = resfolder / foldname
             fullpath.unlink()
 
 
 def get_best_ensembles(CTDparams, params_preproc_ens, dataseed):
     filename = get_ens_filename(CTDparams, params_preproc_ens, dataseed)
 
-    with open(ensfolder/filename, 'rb') as f:
+    with open(resfolder/filename, 'rb') as f:
         ens_res = pk.load(f)
     '''
     Content of the results file:

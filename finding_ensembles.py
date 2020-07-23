@@ -7,11 +7,11 @@ from dask.distributed import Client, LocalCluster
 from decoding_functions import get_ridge_param_CTD_vec, train_test_CTD
 from helper_func import (get_ens_filename, get_ens_pp, get_X_y, combine_ens_folds)
 
-from parameters import (ensfolder, dataseeds, DISTCLUSTER, NLOCALWORKERS,
-                        alpha_powers, nouterfolds, dynparams)
+from parameters import (dataseeds, DISTCLUSTER, NLOCALWORKERS, alpha_powers,
+                        nouterfolds, dynparams, resfolder)
 
 ################################################################
-######################## DATA PARAMETERS #######################
+###################### ANALYSIS PARAMETERS #####################
 ################################################################
 
 monkeys = ['both', 'M', 'N']
@@ -70,7 +70,7 @@ for (taskvar, monkey, stable,
 
     # Checking that the exploration has not already been done
     filename = get_ens_filename(CTDparams, params_preproc, dataseed)
-    if (ensfolder/filename).exists():
+    if (resfolder/filename).exists():
         print("Ensemble optimization for these variables already done")
         continue
 
@@ -97,7 +97,7 @@ for (taskvar, monkey, stable,
         foldname = get_ens_filename(CTDparams, params_preproc, dataseed, ifold=ifold)
 
         # Skip this fold if it has already been done
-        if (ensfolder/foldname).exists():
+        if (resfolder/foldname).exists():
             print(f'Cross-validation fold #{ifold} already done, starting the next one!!\n')
             continue
 
@@ -166,7 +166,7 @@ for (taskvar, monkey, stable,
         # Inserting the last neuron
         ensbl_tmp.insert(0, remaining[0])
 
-        with open(ensfolder/foldname, 'wb') as f:
+        with open(resfolder/foldname, 'wb') as f:
             pk.dump((ensperfs_tmp, ensbl_tmp, testind), f)
 
     combine_ens_folds(CTDparams, stable, dataseed)

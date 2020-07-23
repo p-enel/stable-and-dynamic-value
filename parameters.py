@@ -6,40 +6,35 @@ from collections import OrderedDict
 # FOLDERS
 
 # Where the pre-processed firing rate data can be found
+# unitfolder = Path('/path/to/datasets')
 unitfolder = Path('/home/pierre/datasets')
-# Where the ensemble results will be saved
-ensfolder = Path('/home/pierre/Documents/Analyzes/VBDM other-analyzes/Decoding/Results/ensembles')
 # Where the decoding results and permutations will be saved
 resfolder = Path('/home/pierre/Documents/Analyzes/VBDM other-analyzes/Decoding/Results/accuracies/CTD')
+# resfolder = Path('/path/to/results')
 
 ###############################################################################
-# ANALYZES PARAMETERS
+# DATA PARAMETERS
 
-multi = True
-zscore = True
-
-STABLE_ENS_PARAMS = {'smooth': 'square',
-                     'smoothsize': 1,
-                     'binsize': 200,
-                     'step': 200,
-                     'align': 'end'}
-
+# The pre-processing parameters
 BASIC_PARAMS = {'smooth': 'gaussian',
                 'smoothsize': 100,
                 'binsize': 100,
                 'step': 50,
                 'align': 'center'}
 
-STABLE_ENS_PARAMS['multi'] = multi
-STABLE_ENS_PARAMS['zscore'] = zscore
+# The pre-processing parameters for stable ensemble searching
+STABLE_ENS_PARAMS = {'smooth': 'square',
+                     'smoothsize': 1,
+                     'binsize': 200,
+                     'step': 200,
+                     'align': 'end'}
 
-BASIC_PARAMS['multi'] = multi
-BASIC_PARAMS['zscore'] = zscore
-
+# The time bins around each event that are included in the analysis
 EVT_WINS = OrderedDict((('cues ON', (-500, 1500)),
                         ('response cue', (-500, 500)),
                         ('rwd', (-400, 400))))
 
+# The names of the event as shown on the CTD plot
 EVT_NAMES = OrderedDict((['cues ON', 'cue'],
                          ['response cue', 'response cue'],
                          ['rwd', 'reward']))
@@ -47,7 +42,7 @@ EVT_NAMES = OrderedDict((['cues ON', 'cue'],
 ###############################################################################
 # ANALYZES PARAMETERS
 
-# Powers of ten of alpha explored
+# Powers of ten of alpha explored. Here alpha is the L2 ridge parameter.
 alpha_powers = np.arange(-5, 5.1, .5)
 
 # Data seeds to generate pseudo-population data sets
