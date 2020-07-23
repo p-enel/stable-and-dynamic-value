@@ -6,11 +6,9 @@ from collections import OrderedDict
 # FOLDERS
 
 # Where the pre-processed firing rate data can be found
-# unitfolder = Path('/path/to/datasets')
-unitfolder = Path('/home/pierre/datasets')
+unitfolder = Path('/path/to/datasets')
 # Where the decoding results and permutations will be saved
-resfolder = Path('/home/pierre/Documents/Analyzes/VBDM other-analyzes/Decoding/Results/accuracies/CTD')
-# resfolder = Path('/path/to/results')
+resfolder = Path('/path/to/results')
 
 ###############################################################################
 # DATA PARAMETERS
