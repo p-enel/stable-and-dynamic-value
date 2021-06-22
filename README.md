@@ -97,5 +97,5 @@ specific condition that one wants to plot in the end of the script.
 
 # Help
 
-Don't hesitate to contact [pierre.enel@gmail.com](mailto:pierre.enel@gmail.com)
+Don't hesitate to contact me at [pierre.enel@gmail.com](mailto:pierre.enel@gmail.com)
 if you have trouble running the scripts or if you find bugs in the code.
