@@ -57,7 +57,6 @@ else:
     client = None
 
 ###############################################################################
-(dataseed, taskvar, monkey, stable, region, subspace, ensemble, permutes) = next(product(dataseeds, taskvars, monkeys, stables, regions, subspaces, ensembles, permutations))
 for (dataseed, taskvar, monkey, stable,
      region, subspace, ensemble, permutes) in product(dataseeds, taskvars, monkeys, stables,
                                                       regions, subspaces, ensembles, permutations):
