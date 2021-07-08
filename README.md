@@ -5,10 +5,7 @@ decoding (CTD) analyses of the paper: [Enel, Pierre, Joni D. Wallis, and Erin L.
 Rich. "Stable and dynamic representations of value in the prefrontal cortex."
 eLife 9 (2020): e54313.](https://doi.org/10.7554/eLife.54313)
 
-To replicate the results, you must first download the data set of the paper:
-[try this link first](https://doi.org/10.5061/dryad.4j0zpc88b). If it doesn't work, try the link below:
-
-**The data repository page may not yet be available, you can download the data with [this link instead](https://datadryad.org/stash/share/pDOEyRc3fAJMTNFhf7b_jcO_uZGBR9Pn9FORMkdIQpo)** 
+To replicate the results, you must first download the [data set of the paper](https://doi.org/10.5061/dryad.4j0zpc88b).
 
 # How to use it?
 
